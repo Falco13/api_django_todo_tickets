@@ -1,0 +1,23 @@
+[
+  {
+    "model": "todo_api.status",
+    "pk": 1,
+    "fields": {
+      "title": "NEW"
+    }
+  },
+  {
+    "model": "todo_api.status",
+    "pk": 2,
+    "fields": {
+      "title": "IN_DEVELOPING"
+    }
+  },
+  {
+    "model": "todo_api.status",
+    "pk": 3,
+    "fields": {
+      "title": "DONE"
+    }
+  }
+]
