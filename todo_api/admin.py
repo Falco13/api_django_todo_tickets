@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from todo_api.models import Todo, Image, Status
+from todo_api.models import Todo, Image, Status, Comment
 
 
 @admin.register(Todo)
@@ -20,6 +20,12 @@ class PhotoAdmin(admin.ModelAdmin):
         return format_html('<img src="{}" style="max-width:50px; max-height:50px"/>'.format(obj.img.url))
 
     list_display = ('id', 'img_tag', 'img_title', 'creator', 'created_at')
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('text', 'author', 'todo', 'parent', 'created_at')
+    readonly_fields = ('created_at',)
 
 
 admin.site.register(Status)
