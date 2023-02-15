@@ -24,7 +24,7 @@ class PhotoAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('text', 'author', 'todo', 'parent', 'created_at')
+    list_display = ('id', 'text', 'author', 'todo', 'parent', 'created_at')
     readonly_fields = ('created_at',)
 
 

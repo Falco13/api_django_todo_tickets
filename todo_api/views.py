@@ -1,9 +1,11 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics
 from rest_framework import permissions
-from todo_api.models import Todo, Image
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from todo_api.models import Todo, Image, Comment
 from todo_api.serializers import TodoListSerializer, TodoCreateSerializer, ImageSerializer, TodoDetailSerializer, \
-    CheckStatusSerializer
+    CheckStatusSerializer, CreateCommentSerializer
 from todo_api.permissions import IsAuthorOrReadOnly, IsAuthorOrAssignee
 from rest_framework.parsers import MultiPartParser, FormParser
 
@@ -42,3 +44,11 @@ class UploadImageView(generics.CreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(img=self.request.data.get('img'))
+
+
+class CreateCommentView(APIView):
+    def post(self, request):
+        comment = CreateCommentSerializer(data=request.data)
+        if comment.is_valid():
+            comment.save()
+        return Response(status=201)
