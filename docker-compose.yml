@@ -27,6 +27,12 @@ services:
     volumes:
       - ./pgadmin-data:/var/lib/pgadmin
 
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - "6379:6379"
+
 volumes:
   local_pgdata:
   pgadmin-data:
