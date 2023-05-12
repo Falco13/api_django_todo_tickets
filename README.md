@@ -8,7 +8,14 @@
 - Implemented the ability to write comments, as well as write comments on comments.
 
 __API end-points:__
+- /api/auth/
+- /api/
 - /todos/
+- /todos/add
+- /todos/id
+- /check_status/id
+- /upload_image
+-- /add_comment
 
 
 __Used tools:__    
